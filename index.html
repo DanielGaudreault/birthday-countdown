@@ -191,7 +191,7 @@
     <div class="balloon" style="left: 90%; animation-delay: 16s;"></div>
     
     <div class="countdown-container">
-        <h1>🎉 Countdown to My Birthday! 🎂</h1>
+        <h1>🎉 Countdown to Daniel's Birthday! 🎂</h1>
         <div id="countdown">
             <div>
                 <span id="days"></span>
@@ -211,7 +211,7 @@
             </div>
         </div>
         <div id="message" style="display: none;">
-            <h2>🎉 Happy Birthday to Me! 🎉</h2>
+            <h2>🎉 Happy Birthday Daniel! 🎉</h2>
             <p>It's finally here! Let's celebrate!</p>
         </div>
     </div>
@@ -219,10 +219,10 @@
     <!-- Include canvas-confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
-        // Set your birthday (month is 0-indexed, so 0 = January, 11 = December)
+        // Set birthday to March 28
         const birthday = new Date();
-        birthday.setMonth(10); // November (change to your birth month)
-        birthday.setDate(15); // Change to your birth day
+        birthday.setMonth(2); // March (0=Jan, 1=Feb, 2=Mar)
+        birthday.setDate(28); // 28th
         birthday.setHours(0, 0, 0, 0);
         
         function updateCountdown() {
@@ -230,12 +230,14 @@
             let nextBirthday = new Date(birthday);
             nextBirthday.setFullYear(now.getFullYear());
             
+            // If birthday already passed this year, set to next year
             if (now > nextBirthday) {
                 nextBirthday.setFullYear(now.getFullYear() + 1);
             }
             
             const diff = nextBirthday - now;
             
+            // If it's birthday today
             if (diff <= 0) {
                 document.getElementById('countdown').style.display = 'none';
                 document.getElementById('message').style.display = 'block';
