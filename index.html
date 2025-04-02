@@ -58,8 +58,23 @@
             font-family: 'Baloo 2', cursive;
             color: var(--accent);
             font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .birthday-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        #day-of-week {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: bold;
+            margin: 0.5rem 0;
         }
         
         #countdown {
@@ -88,22 +103,8 @@
             background: rgba(255, 255, 255, 0.2);
         }
         
-        #countdown::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-        
         #countdown div {
-            float: left;
             text-align: center;
-            margin: 0 10px;
-        }
-        
-        #countdown div span {
-            font-size: 3rem;
-            font-weight: bold;
-            display: block;
         }
         
         #countdown div small {
@@ -175,6 +176,10 @@
             h1 {
                 font-size: 1.8rem;
             }
+            
+            #day-of-week {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -192,6 +197,13 @@
     
     <div class="countdown-container">
         <h1>🎉 Countdown to Daniel's Birthday! 🎂</h1>
+        
+        <div class="birthday-info">
+            <p>Your birthday is on:</p>
+            <div id="day-of-week"></div>
+            <p>March 28</p>
+        </div>
+        
         <div id="countdown">
             <div>
                 <span id="days"></span>
@@ -225,14 +237,24 @@
         birthday.setDate(28); // 28th
         birthday.setHours(0, 0, 0, 0);
         
+        // Days of week names
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        
         function updateCountdown() {
             const now = new Date();
             let nextBirthday = new Date(birthday);
             nextBirthday.setFullYear(now.getFullYear());
             
+            // Update day of week display
+            const dayOfWeek = daysOfWeek[nextBirthday.getDay()];
+            document.getElementById('day-of-week').textContent = dayOfWeek;
+            
             // If birthday already passed this year, set to next year
             if (now > nextBirthday) {
                 nextBirthday.setFullYear(now.getFullYear() + 1);
+                // Update day of week display for next year
+                const nextYearDayOfWeek = daysOfWeek[nextBirthday.getDay()];
+                document.getElementById('day-of-week').textContent = `${dayOfWeek} this year | ${nextYearDayOfWeek} next year`;
             }
             
             const diff = nextBirthday - now;
