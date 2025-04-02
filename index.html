@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎂 Daniel's Birthday Countdown!</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Baloo+2:wght@700&display=swap">
+    <title>🎂 Daniel's Ultimate Birthday Countdown!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Baloo+2:wght@700&family=Pacifico&display=swap">
     <link rel="icon" type="image/png" href="images/main logo 2.png">
     <!-- For iOS -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
@@ -15,6 +15,7 @@
             --accent: #FFE66D;
             --dark: #292F36;
             --light: #F7FFF7;
+            --highlight: #FF9E7D;
         }
         
         body {
@@ -46,8 +47,11 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(5px);
             border: 2px solid var(--accent);
-            max-width: 90%;
+            max-width: 800px;
+            width: 90%;
             transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         
         .countdown-container:hover {
@@ -55,25 +59,48 @@
         }
         
         h1 {
-            font-family: 'Baloo 2', cursive;
+            font-family: 'Pacifico', cursive;
             color: var(--accent);
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
         }
         
         .birthday-info {
             background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 10px;
             margin-bottom: 1.5rem;
             border-left: 4px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .birthday-info::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 65%, rgba(255,255,255,0.05) 100%);
+            z-index: 0;
         }
         
         #day-of-week {
-            font-size: 1.5rem;
-            color: var(--accent);
+            font-size: 1.8rem;
+            color: var(--highlight);
             font-weight: bold;
+            margin: 0.5rem 0;
+            font-family: 'Baloo 2', cursive;
+            text-shadow: 0 0 10px rgba(255, 158, 125, 0.5);
+        }
+        
+        .birthday-date {
+            font-size: 1.5rem;
+            color: var(--secondary);
             margin: 0.5rem 0;
         }
         
@@ -83,42 +110,73 @@
             gap: 1.5rem;
             flex-wrap: wrap;
             margin: 2rem 0;
+            position: relative;
         }
         
-        #countdown span {
+        .countdown-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .countdown-item span {
             display: block;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: bold;
             color: var(--primary);
-            min-width: 100px;
+            min-width: 110px;
             background: rgba(255, 255, 255, 0.1);
             padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         
-        #countdown span:hover {
+        .countdown-item span::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .countdown-item span:hover {
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.2);
         }
         
-        #countdown div {
-            text-align: center;
+        .countdown-item span:hover::after {
+            animation: shine 1.5s ease;
         }
         
-        #countdown div small {
+        @keyframes shine {
+            0% { left: -50%; opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { left: 150%; opacity: 0; }
+        }
+        
+        .countdown-item small {
             color: var(--secondary);
-            font-size: 1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: block;
             margin-top: 5px;
+            font-weight: bold;
         }
         
         #message {
             display: none;
             animation: pulse 1.5s infinite;
+            position: relative;
+            z-index: 1;
         }
         
         @keyframes pulse {
@@ -146,6 +204,10 @@
             background: var(--accent);
         }
         
+        .balloon:nth-child(4n) {
+            background: var(--highlight);
+        }
+        
         .balloon::before {
             content: "";
             position: absolute;
@@ -162,77 +224,159 @@
             100% { transform: translateY(-100px) rotate(360deg); }
         }
         
+        .birthday-facts {
+            margin-top: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .birthday-facts h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .birthday-facts p {
+            margin: 0.5rem 0;
+        }
+        
+        .toggle-facts {
+            background: var(--highlight);
+            color: var(--dark);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-facts:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .age-display {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        
+        .celebration-mode {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .celebration-mode:hover {
+            background: var(--highlight);
+            transform: scale(1.1);
+        }
+        
         @media (max-width: 768px) {
-            #countdown {
-                gap: 0.5rem;
-            }
-            
-            #countdown span {
-                font-size: 2rem;
-                min-width: 70px;
-                padding: 0.5rem;
-            }
-            
             h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
+            }
+            
+            .countdown-item span {
+                font-size: 2.5rem;
+                min-width: 80px;
+                padding: 0.8rem;
             }
             
             #day-of-week {
+                font-size: 1.4rem;
+            }
+            
+            .birthday-date {
                 font-size: 1.2rem;
+            }
+            
+            .countdown-item small {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Balloon elements -->
-    <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="balloon" style="left: 20%; animation-delay: 2s;"></div>
-    <div class="balloon" style="left: 30%; animation-delay: 4s;"></div>
-    <div class="balloon" style="left: 40%; animation-delay: 6s;"></div>
-    <div class="balloon" style="left: 50%; animation-delay: 8s;"></div>
-    <div class="balloon" style="left: 60%; animation-delay: 10s;"></div>
-    <div class="balloon" style="left: 70%; animation-delay: 12s;"></div>
-    <div class="balloon" style="left: 80%; animation-delay: 14s;"></div>
-    <div class="balloon" style="left: 90%; animation-delay: 16s;"></div>
+    <div class="balloon" style="left: 5%; animation-delay: 0s;"></div>
+    <div class="balloon" style="left: 15%; animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 25%; animation-delay: 4s;"></div>
+    <div class="balloon" style="left: 35%; animation-delay: 6s;"></div>
+    <div class="balloon" style="left: 45%; animation-delay: 8s;"></div>
+    <div class="balloon" style="left: 55%; animation-delay: 10s;"></div>
+    <div class="balloon" style="left: 65%; animation-delay: 12s;"></div>
+    <div class="balloon" style="left: 75%; animation-delay: 14s;"></div>
+    <div class="balloon" style="left: 85%; animation-delay: 16s;"></div>
+    <div class="balloon" style="left: 95%; animation-delay: 18s;"></div>
     
     <div class="countdown-container">
-        <h1>🎉 Countdown to Daniel's Birthday! 🎂</h1>
+        <h1>🎉 Daniel's Ultimate Birthday Countdown! 🎂</h1>
         
         <div class="birthday-info">
-            <p>Your birthday is on:</p>
+            <p>Your special day is on:</p>
             <div id="day-of-week"></div>
-            <p>March 28</p>
+            <div class="birthday-date">March 28</div>
+            <div class="age-display" id="age-display"></div>
         </div>
         
         <div id="countdown">
-            <div>
+            <div class="countdown-item">
                 <span id="days"></span>
                 <small>Days</small>
             </div>
-            <div>
+            <div class="countdown-item">
                 <span id="hours"></span>
                 <small>Hours</small>
             </div>
-            <div>
+            <div class="countdown-item">
                 <span id="minutes"></span>
                 <small>Minutes</small>
             </div>
-            <div>
+            <div class="countdown-item">
                 <span id="seconds"></span>
                 <small>Seconds</small>
             </div>
         </div>
+        
+        <button class="toggle-facts" id="toggle-facts">Show Birthday Facts</button>
+        
+        <div class="birthday-facts" id="birthday-facts">
+            <h3>🎈 Fun Facts About March 28 Birthdays 🎈</h3>
+            <p>• Zodiac Sign: Aries (The Ram)</p>
+            <p>• Birthstone: Aquamarine (serenity) & Bloodstone (courage)</p>
+            <p>• Famous birthdays: Lady Gaga, Reba McEntire, Vince Vaughn</p>
+            <p>• Historical events on March 28: First commercial radio broadcast (1922)</p>
+        </div>
+        
         <div id="message" style="display: none;">
             <h2>🎉 Happy Birthday Daniel! 🎉</h2>
-            <p>It's finally here! Let's celebrate!</p>
+            <p>It's your special day! Time to celebrate!</p>
         </div>
     </div>
+    
+    <button class="celebration-mode" id="celebration-mode">🎉 Party Mode!</button>
 
     <!-- Include canvas-confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
         // Set birthday to March 28
         const birthday = new Date();
+        const birthYear = 1990; // CHANGE THIS TO YOUR BIRTH YEAR
+        birthday.setFullYear(birthYear);
         birthday.setMonth(2); // March (0=Jan, 1=Feb, 2=Mar)
         birthday.setDate(28); // 28th
         birthday.setHours(0, 0, 0, 0);
@@ -240,14 +384,61 @@
         // Days of week names
         const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         
+        // Celebration mode
+        let celebrationMode = false;
+        let confettiInterval;
+        
+        document.getElementById('celebration-mode').addEventListener('click', function() {
+            celebrationMode = !celebrationMode;
+            this.textContent = celebrationMode ? '🎊 Party On!' : '🎉 Party Mode!';
+            
+            if (celebrationMode) {
+                startConfetti();
+            } else {
+                stopConfetti();
+            }
+        });
+        
+        function startConfetti() {
+            confettiInterval = setInterval(() => {
+                confetti({
+                    particleCount: 50,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }, 2000);
+        }
+        
+        function stopConfetti() {
+            clearInterval(confettiInterval);
+        }
+        
+        // Toggle birthday facts
+        document.getElementById('toggle-facts').addEventListener('click', function() {
+            const facts = document.getElementById('birthday-facts');
+            if (facts.style.display === 'block') {
+                facts.style.display = 'none';
+                this.textContent = 'Show Birthday Facts';
+            } else {
+                facts.style.display = 'block';
+                this.textContent = 'Hide Birthday Facts';
+            }
+        });
+        
         function updateCountdown() {
             const now = new Date();
             let nextBirthday = new Date(birthday);
             nextBirthday.setFullYear(now.getFullYear());
             
+            // Calculate age
+            let age = now.getFullYear() - birthYear;
+            if (now < new Date(birthday).setFullYear(now.getFullYear())) {
+                age--;
+            }
+            document.getElementById('age-display').textContent = `You will be ${age + 1} years old!`;
+            
             // Update day of week display
             const dayOfWeek = daysOfWeek[nextBirthday.getDay()];
-            document.getElementById('day-of-week').textContent = dayOfWeek;
             
             // If birthday already passed this year, set to next year
             if (now > nextBirthday) {
@@ -255,6 +446,8 @@
                 // Update day of week display for next year
                 const nextYearDayOfWeek = daysOfWeek[nextBirthday.getDay()];
                 document.getElementById('day-of-week').textContent = `${dayOfWeek} this year | ${nextYearDayOfWeek} next year`;
+            } else {
+                document.getElementById('day-of-week').textContent = dayOfWeek;
             }
             
             const diff = nextBirthday - now;
@@ -263,12 +456,11 @@
             if (diff <= 0) {
                 document.getElementById('countdown').style.display = 'none';
                 document.getElementById('message').style.display = 'block';
+                document.getElementById('age-display').textContent = `You are ${age} years old today!`;
                 // Trigger confetti
-                confetti({
-                    particleCount: 100,
-                    spread: 70,
-                    origin: { y: 0.6 }
-                });
+                if (!celebrationMode) {
+                    startConfetti();
+                }
                 return;
             }
             
