@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎂 Daniel's 39th Birthday Spectacular! 🎉</title>
+    <title>🎂 Daniel's Birthday Countdown!</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Baloo+2:wght@700&family=Pacifico&family=Bungee&display=swap">
     <link rel="icon" type="image/png" href="images/main logo 2.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
@@ -75,19 +75,12 @@
             100% { transform: rotate(360deg); }
         }
         
-        .countdown-container:hover {
-            transform: scale(1.03) rotate(1deg);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-        }
-        
         h1 {
             font-family: 'Bungee', cursive;
             color: var(--gold);
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
             text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
-            position: relative;
-            z-index: 1;
             background: linear-gradient(to right, var(--gold), var(--accent), var(--highlight));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -102,22 +95,10 @@
             border-left: 5px solid var(--secondary);
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
-        }
-        
-        .birthday-info::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 65%, rgba(255,255,255,0.1) 100%);
-            z-index: 0;
         }
         
         #day-of-week {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--highlight);
             font-weight: bold;
             margin: 0.5rem 0;
@@ -130,7 +111,6 @@
             color: var(--secondary);
             margin: 0.5rem 0;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
         }
         
         .milestone-notice {
@@ -142,18 +122,11 @@
             border-right: 4px solid var(--gold);
             animation: glow 2s infinite alternate;
             font-weight: bold;
-            font-size: 1.3rem;
         }
         
         @keyframes glow {
-            from { 
-                box-shadow: 0 0 10px rgba(199, 146, 234, 0.5);
-                transform: scale(1);
-            }
-            to { 
-                box-shadow: 0 0 25px rgba(199, 146, 234, 0.8), 0 0 15px rgba(255,215,0,0.6);
-                transform: scale(1.02);
-            }
+            from { box-shadow: 0 0 10px rgba(199, 146, 234, 0.5); }
+            to { box-shadow: 0 0 25px rgba(199, 146, 234, 0.8); }
         }
         
         #countdown {
@@ -162,83 +135,45 @@
             gap: 2rem;
             flex-wrap: wrap;
             margin: 3rem 0;
-            position: relative;
         }
         
         .countdown-item {
             text-align: center;
-            position: relative;
-            z-index: 1;
         }
         
         .countdown-item span {
             display: block;
-            font-size: 4.5rem;
+            font-size: 4rem;
             font-weight: bold;
             color: var(--primary);
-            min-width: 130px;
+            min-width: 120px;
             background: rgba(255, 255, 255, 0.15);
             padding: 1.5rem;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
             font-family: 'Bungee', cursive;
-            text-shadow: 0 0 10px rgba(255,107,107,0.5);
-        }
-        
-        .countdown-item span::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
-            transform: rotate(45deg);
-            transition: all 0.5s ease;
-            opacity: 0;
-        }
-        
-        .countdown-item span:hover {
-            transform: translateY(-10px) scale(1.05);
-            background: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .countdown-item span:hover::after {
-            animation: shine 1.5s ease;
-        }
-        
-        @keyframes shine {
-            0% { left: -50%; opacity: 0; }
-            50% { opacity: 1; }
-            100% { left: 150%; opacity: 0; }
         }
         
         .countdown-item small {
             color: var(--secondary);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             display: block;
             margin-top: 10px;
             font-weight: bold;
-            text-shadow: 0 0 8px rgba(78, 205, 196, 0.5);
         }
         
         #message {
             display: none;
             animation: pulse 1.5s infinite;
-            position: relative;
-            z-index: 1;
         }
         
         @keyframes pulse {
-            0% { transform: scale(1); text-shadow: 0 0 10px rgba(255,215,0,0.5); }
-            50% { transform: scale(1.1); text-shadow: 0 0 20px rgba(255,215,0,0.8); }
-            100% { transform: scale(1); text-shadow: 0 0 10px rgba(255,215,0,0.5); }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         .balloon {
@@ -250,103 +185,31 @@
             opacity: 0.8;
             animation: float 15s ease-in-out infinite;
             z-index: 1;
-            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2);
-        }
-        
-        .balloon::after {
-            content: "🎈";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
         }
         
         .balloon:nth-child(2n) {
             background: var(--secondary);
             animation-delay: 2s;
-            animation-duration: 18s;
         }
         
         .balloon:nth-child(3n) {
             background: var(--accent);
             animation-delay: 4s;
-            animation-duration: 12s;
         }
         
         .balloon:nth-child(4n) {
             background: var(--highlight);
             animation-delay: 6s;
-            animation-duration: 16s;
         }
         
         .balloon:nth-child(5n) {
             background: var(--milestone);
             animation-delay: 8s;
-            animation-duration: 14s;
-        }
-        
-        .balloon:nth-child(6n) {
-            background: var(--gold);
-            animation-delay: 10s;
-            animation-duration: 20s;
         }
         
         @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg) scale(0.8); }
-            50% { transform: translateY(30vh) rotate(180deg) scale(1.1); }
-            100% { transform: translateY(-100px) rotate(360deg) scale(0.8); }
-        }
-        
-        .birthday-facts {
-            margin-top: 2rem;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.5rem;
-            border-radius: 15px;
-            display: none;
-            border: 2px solid var(--accent);
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        .birthday-facts h3 {
-            color: var(--gold);
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            font-family: 'Pacifico', cursive;
-            text-shadow: 0 0 10px rgba(255,215,0,0.5);
-        }
-        
-        .birthday-facts p {
-            margin: 1rem 0;
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-        
-        .birthday-facts p::before {
-            content: "✨";
-            margin-right: 10px;
-        }
-        
-        .toggle-facts {
-            background: linear-gradient(to right, var(--highlight), var(--accent));
-            color: var(--dark);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .toggle-facts:hover {
-            background: linear-gradient(to right, var(--accent), var(--gold));
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
         }
         
         .age-display {
@@ -354,12 +217,7 @@
             color: var(--gold);
             margin: 1.5rem 0;
             font-weight: bold;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
             font-family: 'Bungee', cursive;
-            background: linear-gradient(to right, var(--milestone), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding: 0.5rem;
         }
         
         .celebration-mode {
@@ -374,38 +232,7 @@
             font-weight: bold;
             cursor: pointer;
             z-index: 100;
-            transition: all 0.3s ease;
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .celebration-mode:hover {
-            background: linear-gradient(to right, var(--highlight), var(--gold));
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-        }
-        
-        .milestone-facts {
-            margin: 1.5rem 0;
-            padding: 1.5rem;
-            background: linear-gradient(to right, rgba(199,146,234,0.1), rgba(255,215,0,0.1));
-            border-radius: 15px;
-            border-left: 5px solid var(--milestone);
-            border-right: 5px solid var(--gold);
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        .milestone-facts p {
-            font-size: 1.3rem;
-            margin: 0.8rem 0;
-            font-weight: bold;
-        }
-        
-        .milestone-facts p::before {
-            content: "🎯";
-            margin-right: 10px;
         }
         
         .birthday-history {
@@ -414,144 +241,50 @@
             padding: 1.5rem;
             border-radius: 15px;
             display: none;
-            border: 2px dashed var(--secondary);
-        }
-        
-        .birthday-history h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        
-        .birthday-history p {
-            margin: 0.8rem 0;
-        }
-        
-        .photo-collage {
-            display: none;
-            margin-top: 2rem;
-            position: relative;
-            height: 200px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .photo-collage img {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border: 3px solid var(--light);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: all 0.5s ease;
-        }
-        
-        .photo-collage img:nth-child(1) {
-            top: 10px;
-            left: 10px;
-            transform: rotate(-5deg);
-            z-index: 1;
-        }
-        
-        .photo-collage img:nth-child(2) {
-            top: 10px;
-            right: 10px;
-            transform: rotate(5deg);
-            z-index: 2;
-        }
-        
-        .photo-collage img:nth-child(3) {
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%) rotate(2deg);
-            z-index: 3;
-        }
-        
-        .photo-collage img:hover {
-            transform: scale(1.2) rotate(0deg);
-            z-index: 10;
         }
         
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .countdown-item span {
-                font-size: 3rem;
-                min-width: 100px;
+                font-size: 2.8rem;
+                min-width: 90px;
                 padding: 1rem;
             }
             
             #day-of-week {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             
             .birthday-date {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
-            
-            .countdown-item small {
-                font-size: 1.2rem;
-            }
-            
-            .age-display {
-                font-size: 1.8rem;
-            }
-            
-            .milestone-notice {
-                font-size: 1.1rem;
-            }
-        }
-        
-        /* Fireworks effect */
-        .firework {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            box-shadow: 0 0 10px 5px var(--primary);
-            animation: explode 1s ease-out forwards;
-            opacity: 0;
-            z-index: 0;
-        }
-        
-        @keyframes explode {
-            0% { transform: scale(0); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: scale(20); opacity: 0; }
         }
     </style>
 </head>
 <body>
     <!-- Balloon elements -->
-    <div class="balloon" style="left: 5%;"></div>
-    <div class="balloon" style="left: 15%; animation-delay: 2s;"></div>
-    <div class="balloon" style="left: 25%; animation-delay: 4s;"></div>
-    <div class="balloon" style="left: 35%; animation-delay: 6s;"></div>
-    <div class="balloon" style="left: 45%; animation-delay: 8s;"></div>
-    <div class="balloon" style="left: 55%; animation-delay: 10s;"></div>
-    <div class="balloon" style="left: 65%; animation-delay: 12s;"></div>
-    <div class="balloon" style="left: 75%; animation-delay: 14s;"></div>
-    <div class="balloon" style="left: 85%; animation-delay: 16s;"></div>
-    <div class="balloon" style="left: 95%; animation-delay: 18s;"></div>
+    <div class="balloon" style="left: 10%;"></div>
+    <div class="balloon" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 30%; animation-delay: 4s;"></div>
+    <div class="balloon" style="left: 40%; animation-delay: 6s;"></div>
+    <div class="balloon" style="left: 50%; animation-delay: 8s;"></div>
+    <div class="balloon" style="left: 60%;"></div>
+    <div class="balloon" style="left: 70%; animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 80%; animation-delay: 4s;"></div>
+    <div class="balloon" style="left: 90%; animation-delay: 6s;"></div>
     
     <div class="countdown-container">
-        <h1>🎉 DANIEL'S 39TH BIRTHDAY COUNTDOWN! 🎂</h1>
+        <h1>🎉 DANIEL'S BIRTHDAY COUNTDOWN! 🎂</h1>
         
         <div class="birthday-info">
-            <p style="font-size: 1.2rem;">Born on <span style="color: var(--accent); font-weight: bold;">March 28, 1987</span></p>
+            <p>Born on <strong>March 28, 1987</strong></p>
             <div id="day-of-week"></div>
             <div class="birthday-date">March 28</div>
-            <div class="milestone-notice">✨ FINAL YEAR OF YOUR 30s - MAKE IT COUNT! ✨</div>
+            <div class="milestone-notice" id="milestone-notice"></div>
             <div class="age-display" id="age-display"></div>
-            
-            <div class="milestone-facts">
-                <p>🎯 39 is the sum of five consecutive primes (3 + 5 + 7 + 11 + 13)</p>
-                <p>🎯 In Japanese culture, 39 can be read as "san-kyū" - "thank you"</p>
-                <p>🎯 The 39 Steps is a famous novel and film</p>
-                <p>🎯 You share your birthday year with the release of The Simpsons!</p>
-            </div>
         </div>
         
         <div id="countdown">
@@ -573,69 +306,46 @@
             </div>
         </div>
         
-        <button class="toggle-facts" id="toggle-facts">SHOW BIRTHDAY FACTS</button>
-        
-        <div class="birthday-facts" id="birthday-facts">
-            <h3>🌟 March 28 Birthday Superpowers 🌟</h3>
-            <p>✨ Zodiac: Aries - The fearless leader of the zodiac! Your energy and enthusiasm are contagious.</p>
-            <p>✨ Birthstones: Aquamarine (serenity) & Bloodstone (courage) - Perfect for your bold yet balanced nature.</p>
-            <p>✨ Famous birthday twins: Lady Gaga, Reba McEntire, Vince Vaughn - You're in creative company!</p>
-            <p>✨ Historical events: First commercial radio broadcast (1922) - You're a natural communicator!</p>
-            <p>✨ In numerology, 39 reduces to 12 then 3 - The creative communicator. Perfect for an Aries!</p>
-            <p>✨ 1987 Trivia: The year of the first Final Fantasy game and The Simpsons debut!</p>
-        </div>
-        
         <div class="birthday-history" id="birthday-history">
-            <h3>📅 This Day in Your History</h3>
-            <p>• 1987: You were born during the era of big hair and classic movies!</p>
-            <p>• 2005: Turned 18 - Officially an adult!</p>
-            <p>• 2016: Celebrated your 29th birthday - Last year of your 20s!</p>
-            <p>• Next year: The big 4-0 is coming!</p>
-        </div>
-        
-        <div class="photo-collage" id="photo-collage">
-            <!-- Add your photo URLs here -->
-            <img src="https://via.placeholder.com/100?text=Baby+Photo" alt="Baby Daniel">
-            <img src="https://via.placeholder.com/100?text=Teen+Daniel" alt="Teen Daniel">
-            <img src="https://via.placeholder.com/100?text=Recent+Photo" alt="Recent Daniel">
+            <h3>This Day in Your History</h3>
+            <p id="history-text"></p>
         </div>
         
         <div id="message" style="display: none;">
-            <h2 style="font-size: 3rem;">🎉 HAPPY 39TH BIRTHDAY DANIEL! 🎉</h2>
-            <p style="font-size: 1.5rem;">Welcome to the final year of your amazing 30s! Let's make it legendary!</p>
-            <div class="age-display">TODAY YOU ARE <span style="font-size: 3rem;">39</span> YEARS OLD!</div>
+            <h2>🎉 HAPPY BIRTHDAY DANIEL! 🎉</h2>
+            <div class="age-display" id="birthday-age"></div>
         </div>
     </div>
     
-    <button class="celebration-mode" id="celebration-mode">🎊 ULTRA PARTY MODE! 🎊</button>
+    <button class="celebration-mode" id="celebration-mode">🎉 PARTY MODE!</button>
 
-    <!-- Include canvas-confetti library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
-        // Set birthday to March 28, 1987
-        const birthday = new Date(1987, 2, 28); // March 28, 1987
-        const turningAge = 39; // You'll be 39 next birthday
+        // Your birth date - March 28, 1987
+        const birthDate = new Date(1987, 2, 28);
+        let confettiInterval;
+        let celebrationMode = false;
         
         // Days of week names
         const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         
-        // Celebration mode
-        let celebrationMode = false;
-        let confettiInterval;
-        let fireworksInterval;
+        // Milestone ages
+        const milestones = {
+            18: "Legal adult! 🎉",
+            21: "Official adulthood! 🍻",
+            30: "Welcome to your 30s! ✨",
+            40: "The big 4-0! 🎂",
+            50: "Half a century! 🏆"
+        };
         
         document.getElementById('celebration-mode').addEventListener('click', function() {
             celebrationMode = !celebrationMode;
-            this.textContent = celebrationMode ? '🎇 PARTY OVERLOAD! 🎇' : '🎊 ULTRA PARTY MODE! 🎊';
-            
             if (celebrationMode) {
+                this.textContent = '🎊 PARTY TIME! 🎊';
                 startConfetti();
-                startFireworks();
-                document.body.style.animation = "gradientShift 5s ease infinite";
             } else {
+                this.textContent = '🎉 PARTY MODE!';
                 stopConfetti();
-                stopFireworks();
-                document.body.style.animation = "gradientShift 15s ease infinite";
             }
         });
         
@@ -643,90 +353,57 @@
             confettiInterval = setInterval(() => {
                 confetti({
                     particleCount: 100,
-                    spread: 90,
+                    spread: 70,
                     origin: { y: 0.6 }
                 });
-            }, 1500);
+            }, 2000);
         }
         
         function stopConfetti() {
             clearInterval(confettiInterval);
         }
         
-        function startFireworks() {
-            fireworksInterval = setInterval(createFirework, 800);
-        }
-        
-        function stopFireworks() {
-            clearInterval(fireworksInterval);
-        }
-        
-        function createFirework() {
-            const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#FF9E7D', '#C792EA', '#FFD700'];
-            const firework = document.createElement('div');
-            firework.className = 'firework';
-            firework.style.left = Math.random() * 100 + 'vw';
-            firework.style.top = Math.random() * 100 + 'vh';
-            firework.style.boxShadow = `0 0 10px 5px ${colors[Math.floor(Math.random() * colors.length)]}`;
-            document.body.appendChild(firework);
-            
-            setTimeout(() => {
-                firework.remove();
-            }, 1000);
-        }
-        
-        // Toggle birthday facts
-        document.getElementById('toggle-facts').addEventListener('click', function() {
-            const facts = document.getElementById('birthday-facts');
-            const history = document.getElementById('birthday-history');
-            const collage = document.getElementById('photo-collage');
-            
-            if (facts.style.display === 'block') {
-                facts.style.display = 'none';
-                history.style.display = 'none';
-                collage.style.display = 'none';
-                this.textContent = 'SHOW BIRTHDAY FACTS';
-            } else {
-                facts.style.display = 'block';
-                history.style.display = 'block';
-                collage.style.display = 'block';
-                this.textContent = 'HIDE BIRTHDAY FACTS';
-            }
-        });
-        
         function updateCountdown() {
             const now = new Date();
-            let nextBirthday = new Date(birthday);
-            nextBirthday.setFullYear(now.getFullYear());
+            const currentYear = now.getFullYear();
             
-            // Calculate age
-            let age = now.getFullYear() - 1987;
-            let ageText = `TURNING <span style="color:var(--gold); font-size:2.5rem">${turningAge}</span> IN`;
-            
-            // If birthday is this year
-            if (now.getMonth() < 2 || (now.getMonth() === 2 && now.getDate() < 28)) {
-                ageText = `TURNING <span style="color:var(--gold); font-size:2.5rem">${turningAge}</span> IN`;
-            } else {
-                ageText = `WILL BE <span style="color:var(--gold); font-size:2.5rem">${turningAge}</span> NEXT YEAR IN`;
+            // Calculate next birthday
+            let nextBirthday = new Date(currentYear, 2, 28); // March 28 this year
+            if (now > nextBirthday) {
+                nextBirthday = new Date(currentYear + 1, 2, 28); // March 28 next year
             }
             
-            document.getElementById('age-display').innerHTML = ageText;
+            // Calculate age
+            let age = currentYear - 1987;
+            if (now < new Date(currentYear, 2, 28)) {
+                age--; // Haven't had birthday yet this year
+            }
+            const nextAge = age + 1;
             
             // Update day of week display
             const dayOfWeek = daysOfWeek[nextBirthday.getDay()];
+            document.getElementById('day-of-week').textContent = dayOfWeek;
             
-            // If birthday already passed this year, set to next year
-            if (now > nextBirthday) {
-                nextBirthday.setFullYear(now.getFullYear() + 1);
-                // Update day of week display for next year
-                const nextYearDayOfWeek = daysOfWeek[nextBirthday.getDay()];
-                document.getElementById('day-of-week').innerHTML = `
-                    <span style="color:var(--accent)">${dayOfWeek} THIS YEAR</span> | 
-                    <span style="color:var(--highlight)">${nextYearDayOfWeek} NEXT YEAR</span>
-                `;
+            // Update age display
+            document.getElementById('age-display').textContent = `Turning ${nextAge} years old!`;
+            
+            // Check for milestone
+            if (milestones[nextAge]) {
+                document.getElementById('milestone-notice').textContent = `✨ MILESTONE ALERT: ${milestones[nextAge]} ✨`;
+                document.getElementById('milestone-notice').style.display = 'block';
             } else {
-                document.getElementById('day-of-week').textContent = dayOfWeek;
+                document.getElementById('milestone-notice').style.display = 'none';
             }
+            
+            // Update history text
+            const historyText = [
+                `• ${1987}: You were born! 👶`,
+                `• ${1987 + 18}: Became an adult! 🎓`,
+                `• ${1987 + 21}: Official adulthood! 🍻`,
+                `• ${1987 + 30}: Welcome to your 30s! ✨`,
+                `• Next up: ${nextAge} years young! 🎉`
+            ].join('<br>');
+            document.getElementById('history-text').innerHTML = historyText;
             
             const diff = nextBirthday - now;
             
@@ -734,13 +411,11 @@
             if (diff <= 0) {
                 document.getElementById('countdown').style.display = 'none';
                 document.getElementById('message').style.display = 'block';
-                document.getElementById('age-display').innerHTML = `
-                    TODAY YOU ARE <span style="color:var(--gold); font-size:3rem">${turningAge}</span> YEARS OLD!
-                `;
-                // Trigger mega celebration
+                document.getElementById('birthday-age').textContent = `You are ${nextAge} years old today!`;
+                document.getElementById('milestone-notice').style.display = 'block';
+                
                 if (!celebrationMode) {
                     startConfetti();
-                    startFireworks();
                 }
                 return;
             }
@@ -755,22 +430,19 @@
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
             
-            // Special effects when close to birthday
-            if (days < 10) {
-                document.getElementById('countdown').style.animation = "pulse 1s infinite";
+            // Show history when close to birthday
+            if (days < 30) {
+                document.getElementById('birthday-history').style.display = 'block';
+            } else {
+                document.getElementById('birthday-history').style.display = 'none';
             }
         }
         
-        // Update every second
+        // Initial update
         updateCountdown();
-        setInterval(updateCountdown, 1000);
         
-        // Create occasional random fireworks
-        setInterval(() => {
-            if (Math.random() > 0.9) {
-                createFirework();
-            }
-        }, 3000);
+        // Update every second
+        setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
