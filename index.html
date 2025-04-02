@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎂 Daniel's Birthday Countdown!</title>
+    <title>🎂 Daniel's Annual Birthday Countdown!</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Baloo+2:wght@700&family=Pacifico&family=Bungee&display=swap">
     <link rel="icon" type="image/png" href="images/main logo 2.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
@@ -50,7 +50,6 @@
             border: 3px solid var(--accent);
             max-width: 900px;
             width: 90%;
-            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             z-index: 10;
@@ -79,22 +78,20 @@
             font-family: 'Bungee', cursive;
             color: var(--gold);
             font-size: 3rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
             background: linear-gradient(to right, var(--gold), var(--accent), var(--highlight));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
         }
         
         .birthday-info {
             background: rgba(255, 255, 255, 0.15);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             border-left: 5px solid var(--secondary);
             position: relative;
-            overflow: hidden;
         }
         
         #day-of-week {
@@ -103,7 +100,6 @@
             font-weight: bold;
             margin: 0.5rem 0;
             font-family: 'Baloo 2', cursive;
-            text-shadow: 0 0 15px rgba(255, 158, 125, 0.7);
         }
         
         .birthday-date {
@@ -134,7 +130,7 @@
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
-            margin: 3rem 0;
+            margin: 2rem 0;
         }
         
         .countdown-item {
@@ -151,7 +147,6 @@
             padding: 1.5rem;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
             font-family: 'Bungee', cursive;
         }
         
@@ -215,15 +210,15 @@
         .age-display {
             font-size: 2rem;
             color: var(--gold);
-            margin: 1.5rem 0;
+            margin: 1rem 0;
             font-weight: bold;
             font-family: 'Bungee', cursive;
         }
         
         .celebration-mode {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             background: linear-gradient(to right, var(--primary), var(--highlight));
             color: var(--dark);
             border: none;
@@ -235,12 +230,50 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
         
+        .birthday-facts {
+            margin-top: 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: none;
+        }
+        
+        .birthday-facts h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .birthday-facts p {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
         .birthday-history {
             margin-top: 2rem;
             background: rgba(255, 255, 255, 0.1);
             padding: 1.5rem;
             border-radius: 15px;
             display: none;
+        }
+        
+        .birthday-history h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .toggle-facts {
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+            color: var(--dark);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
         }
         
         @media (max-width: 768px) {
@@ -277,7 +310,7 @@
     <div class="balloon" style="left: 90%; animation-delay: 6s;"></div>
     
     <div class="countdown-container">
-        <h1>🎉 DANIEL'S BIRTHDAY COUNTDOWN! 🎂</h1>
+        <h1 id="main-title">🎉 DANIEL'S BIRTHDAY COUNTDOWN! 🎂</h1>
         
         <div class="birthday-info">
             <p>Born on <strong>March 28, 1987</strong></p>
@@ -306,9 +339,21 @@
             </div>
         </div>
         
+        <button class="toggle-facts" id="toggle-facts">SHOW BIRTHDAY FACTS</button>
+        
+        <div class="birthday-facts" id="birthday-facts">
+            <h3>🌟 March 28 Birthday Superpowers 🌟</h3>
+            <p>✨ Zodiac: Aries - The fearless leader of the zodiac! Your energy and enthusiasm are contagious.</p>
+            <p>✨ Birthstones: Aquamarine (serenity) & Bloodstone (courage) - Perfect for your bold yet balanced nature.</p>
+            <p>✨ Famous birthday twins: Lady Gaga, Reba McEntire, Vince Vaughn - You're in creative company!</p>
+            <p>✨ Historical events: First commercial radio broadcast (1922) - You're a natural communicator!</p>
+            <p>✨ In numerology, 39 reduces to 12 then 3 - The creative communicator. Perfect for an Aries!</p>
+            <p>✨ 1987 Trivia: The year of the first Final Fantasy game and The Simpsons debut!</p>
+        </div>
+        
         <div class="birthday-history" id="birthday-history">
-            <h3>This Day in Your History</h3>
-            <p id="history-text"></p>
+            <h3>📅 Your Personal Birthday Timeline</h3>
+            <div id="history-text"></div>
         </div>
         
         <div id="message" style="display: none;">
@@ -329,14 +374,38 @@
         // Days of week names
         const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         
-        // Milestone ages
+        // Milestone ages with custom messages
         const milestones = {
-            18: "Legal adult! 🎉",
-            21: "Official adulthood! 🍻",
+            16: "Sweet 16! 🚗",
+            18: "Official adult! 🎓",
+            21: "Cheers to 21! 🍻",
             30: "Welcome to your 30s! ✨",
+            35: "Mid-30s and thriving! 💪",
+            39: "Final year of your 30s! 🎯",
             40: "The big 4-0! 🎂",
-            50: "Half a century! 🏆"
+            50: "Half a century! 🏆",
+            60: "Welcome to the 60s club! 🎷",
+            65: "Retirement age! 🏖️",
+            100: "Century celebration! 💯"
         };
+        
+        // Famous people born in 1987
+        const famous1987 = [
+            "Lady Gaga (singer)",
+            "Lena Headey (actress)",
+            "Aaron Rodgers (NFL quarterback)",
+            "Zlatan Ibrahimović (soccer star)",
+            "Emily Browning (actress)"
+        ];
+        
+        // Historical events from 1987
+        const events1987 = [
+            "The Simpsons debuted as shorts on The Tracey Ullman Show",
+            "Final Fantasy video game series began",
+            "Microsoft released Windows 2.0",
+            "The first 3D video game console (Nintendo Famicom 3D System) was released",
+            "The first cell phone call in the UK was made"
+        ];
         
         document.getElementById('celebration-mode').addEventListener('click', function() {
             celebrationMode = !celebrationMode;
@@ -366,6 +435,7 @@
         function updateCountdown() {
             const now = new Date();
             const currentYear = now.getFullYear();
+            const birthYear = 1987;
             
             // Calculate next birthday
             let nextBirthday = new Date(currentYear, 2, 28); // March 28 this year
@@ -374,11 +444,18 @@
             }
             
             // Calculate age
-            let age = currentYear - 1987;
+            let age = currentYear - birthYear;
             if (now < new Date(currentYear, 2, 28)) {
                 age--; // Haven't had birthday yet this year
             }
             const nextAge = age + 1;
+            
+            // Update main title with age if milestone
+            if (milestones[nextAge]) {
+                document.getElementById('main-title').textContent = `🎉 DANIEL'S ${nextAge}TH BIRTHDAY COUNTDOWN! 🎂`;
+            } else {
+                document.getElementById('main-title').textContent = `🎉 DANIEL'S BIRTHDAY COUNTDOWN! 🎂`;
+            }
             
             // Update day of week display
             const dayOfWeek = daysOfWeek[nextBirthday.getDay()];
@@ -396,14 +473,44 @@
             }
             
             // Update history text
-            const historyText = [
-                `• ${1987}: You were born! 👶`,
-                `• ${1987 + 18}: Became an adult! 🎓`,
-                `• ${1987 + 21}: Official adulthood! 🍻`,
-                `• ${1987 + 30}: Welcome to your 30s! ✨`,
-                `• Next up: ${nextAge} years young! 🎉`
-            ].join('<br>');
-            document.getElementById('history-text').innerHTML = historyText;
+            const historyYears = [
+                birthYear,
+                birthYear + 16,
+                birthYear + 18,
+                birthYear + 21,
+                birthYear + 30,
+                birthYear + 35,
+                birthYear + 40,
+                birthYear + 50,
+                birthYear + 65,
+                birthYear + 100
+            ];
+            
+            let historyHTML = `
+                <p><strong>Your Birth Year (${birthYear}):</strong></p>
+                <ul>
+                    <li>Born during the era of big hair and classic movies</li>
+                    <li>Famous people born in 1987: ${famous1987.join(", ")}</li>
+                    <li>Historical events: ${events1987.join("; ")}</li>
+                </ul>
+                <p><strong>Your Personal Timeline:</strong></p>
+                <ul>
+            `;
+            
+            historyYears.forEach(year => {
+                if (year <= currentYear) {
+                    const ageAtYear = year - birthYear;
+                    historyHTML += `<li>${year}: Turned ${ageAtYear} - ${milestones[ageAtYear] || "Another great year!"}</li>`;
+                } else if (year === birthYear + 100) {
+                    historyHTML += `<li>${year}: Will turn 100 years old! 💯</li>`;
+                } else {
+                    const ageAtYear = year - birthYear;
+                    historyHTML += `<li>${year}: Future milestone - will turn ${ageAtYear}</li>`;
+                }
+            });
+            
+            historyHTML += `</ul>`;
+            document.getElementById('history-text').innerHTML = historyHTML;
             
             const diff = nextBirthday - now;
             
@@ -412,7 +519,10 @@
                 document.getElementById('countdown').style.display = 'none';
                 document.getElementById('message').style.display = 'block';
                 document.getElementById('birthday-age').textContent = `You are ${nextAge} years old today!`;
-                document.getElementById('milestone-notice').style.display = 'block';
+                
+                if (milestones[nextAge]) {
+                    document.getElementById('milestone-notice').textContent = `✨ TODAY'S THE DAY! ${milestones[nextAge]} ✨`;
+                }
                 
                 if (!celebrationMode) {
                     startConfetti();
@@ -433,10 +543,24 @@
             // Show history when close to birthday
             if (days < 30) {
                 document.getElementById('birthday-history').style.display = 'block';
+                document.getElementById('birthday-facts').style.display = 'block';
             } else {
                 document.getElementById('birthday-history').style.display = 'none';
+                document.getElementById('birthday-facts').style.display = 'none';
             }
         }
+        
+        // Toggle facts button
+        document.getElementById('toggle-facts').addEventListener('click', function() {
+            const facts = document.getElementById('birthday-facts');
+            if (facts.style.display === 'block') {
+                facts.style.display = 'none';
+                this.textContent = 'SHOW BIRTHDAY FACTS';
+            } else {
+                facts.style.display = 'block';
+                this.textContent = 'HIDE BIRTHDAY FACTS';
+            }
+        });
         
         // Initial update
         updateCountdown();
